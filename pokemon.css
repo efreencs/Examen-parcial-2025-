@@ -1,11 +1,11 @@
 :root {
-  --main-background-color: #044acb;
+  --main-background-color: #054fda;
   --main-text-color: #cabd04;
   --link-color: rgb(65, 225, 7);
   --link-color-hover: rgb(2, 105, 9);
   --visited-link-color: rgb(1, 41, 17);
   --warning-link-color: #f87000;
-  --button-background-color: #a8660a;
+  --button-background-color: #bd7005;
   --button-border-color: #470202;
   --button-hover-color: #6a4902;
 }
@@ -36,6 +36,20 @@ body {
     padding: 0;
 }
 
+#pokemontrobat {
+  text-align: left; 
+  text-transform: capitalize;
+  padding: 20px;
+}
+
+.pokemon-buscat-image {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  margin: 10px 0;
+  display: block;
+}
+
 #pokemonsection {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -57,28 +71,30 @@ body {
 }
 
 .pokemon-name{
-    color: var(--main-background-color);
+    color: var(--button-background-color);
     margin: 3px 0;
     font-size: 14px;
     text-align: center;
     text-transform: capitalize;
 }
 .pokemon-id{
-    color: var(--main-background-color);
+    color: #000000;
     margin: 3px 0;
     font-size: 12px;
     text-align: center;
     text-transform: capitalize;
 }
 
-.pokemon-button{
-    background-color: var(--button-background-color);
-    border: 2px solid var(--button-border-color);
-    border-radius: 8px;
-    color: var(--main-text-color);
-    cursor: pointer;
-    font-size: 12px;
+.pokemon-button {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background-color: var(--button-background-color);
+  border: 2px solid var(--button-border-color);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
 }
+
 
 
 

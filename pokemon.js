@@ -65,7 +65,7 @@ async function buscarPokemon() {
     const nompokemon = pokemonbuscar.toLowerCase().trim();
     const resposta = document.getElementById('resultats');
 
-    const httppokemon = fetch(`https://pokeapi.co/api/v2/pokemon/${nompokemon}`);
+    const httppokemon = await fetch(`${apiUrl}/pokemon/${nompokemon}`);
 
     if (!httppokemon.ok) {
         resposta.innerHTML = 'Pokemon no trobat. Si us plau, intenta-ho de nou.';
@@ -79,27 +79,30 @@ async function buscarPokemon() {
     resposta.appendChild(aliaspokemon);
 
     const nombuscat = document.createElement('p');
-    nombuscat.innerText = dataBusqueda.name;
-    resultat.appendChild(nombuscat);
+    nombuscat.innerText = dadespokemon.name;
+    resposta.appendChild(nombuscat);
 
     const idbuscat = document.createElement('p');
-    idbuscat.innerText = `#${dataBusqueda.id}`;
-    resultat.appendChild(idbuscat);
+    idbuscat.innerText = `Numero de la pokedex  #${dadespokemon.id}`;
+    resposta.appendChild(idbuscat);
 
     const seccioresultat = document.createElement('ul');
     const titolTipus = document.createElement('p');
-    titolTipus.innerText = 'Els tipus del pokemon son:';
-    resultat.appendChild(titolTipus);
-    
-    for (const tipo of dataBusqueda.types) {
+    titolTipus.innerText = 'Tipus:';
+    resposta.appendChild(titolTipus);
+
+    for (const tipo of dadespokemon.types) {
         const elementTipus = document.createElement('li');
         elementTipus.innerText = tipo.type.name;
-        seccioresultat.appendChild(elementTipus);
+        resposta.appendChild(elementTipus);
     }
-    resultat.appendChild(seccioresultat);
 
     const imatgepokemon = document.createElement('img');
+    imatgepokemon.classList.add('pokemon-buscat-image');
     imatgepokemon.src = dadespokemon.sprites.other['official-artwork'].front_default;
     resposta.appendChild(imatgepokemon);
+
+    resposta.appendChild(seccioresultat);
     
 }
+
