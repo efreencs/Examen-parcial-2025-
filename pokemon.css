@@ -201,6 +201,11 @@ nav {
   border-color: var(--button-hover-color);
 
 }
+
+#footer{
+  align-items: center;
+}
+
 @media (max-width: 736px) {
 
   header h1 {
