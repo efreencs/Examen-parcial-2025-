@@ -78,7 +78,7 @@ body {
     text-transform: capitalize;
 }
 .pokemon-id{
-    color: #000000;
+    color: #ffffff;
     margin: 3px 0;
     font-size: 12px;
     text-align: center;
@@ -92,11 +92,32 @@ body {
   border: 2px solid var(--button-border-color);
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s, border-color 0.3s;
+  color: #ffffff;
 }
 
+.pokemon-button:hover {
+  background-color: var(--button-hover-color);
+  border-color: var(--button-hover-color);
+}
 
+.pokemon-image {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
 
+.pokemon.types{
+  color: var(--button-background-color);
+  margin: 3px 0;
+  font-size: 14px;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+#equippokemon li {
+  list-style-type: none;
+  padding: 0;
+}
 
 @media (max-width: 600px) {
 

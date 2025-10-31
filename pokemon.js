@@ -33,7 +33,7 @@ window.onload = async() => {
         pokemondiv.appendChild(id);
 
         const botoafegir = document.createElement('button');
-        id.classList.add('pokemon-button');
+        botoafegir.classList.add('pokemon-button');
         botoafegir.innerText = 'Afegir a l\'equip';
         botoafegir.addEventListener('click', (event) => { 
             event.stopPropagation();
@@ -103,6 +103,73 @@ async function buscarPokemon() {
     resposta.appendChild(imatgepokemon);
 
     resposta.appendChild(seccioresultat);
+    
+}
+
+
+async function mostrarStats(pokemon, divClicat) {
+    const httpBusqueda = await fetch(`${apiUrl}/pokemon/${pokemon.id}`);
+    const dataBusqueda = await httpBusqueda.json();
+
+    const jaTéImatge = divClicat.querySelector('.pokemon-image');
+    if (jaTéImatge) {
+        return;  
+    }
+
+    const image = document.createElement('img');
+    image.classList.add('pokemon-image'); 
+    image.src = dataBusqueda.sprites.other['official-artwork'].front_default;
+    divClicat.appendChild(image);
+
+    const tipus = document.createElement('p');
+    tipus.classList.add('pokemon-types'); 
+    tipus.innerText = dataBusqueda.types.map(typeInfo => typeInfo.type.name).join(', ');
+    divClicat.appendChild(tipus);        
+}
+
+async function afegirAEquip(pokemon) {
+    if (equip.length >= 6) {
+        alert('El teu equip ja té 6 Pokémon. No pots afegir-ne més.');
+        return;
+    }
+
+    if (equip.find(p => p.id === pokemon.id)) {
+        alert(`${pokemon.name} ja està al teu equip.`);
+        return;
+    }
+    equip.push(pokemon);
+
+    const seccioequip = document.getElementById('equippokemon');
+    const elementpokemon = document.createElement('li');
+    elementpokemon.innerText = pokemon.name;
+    seccioequip.appendChild(elementpokemon);
+
+    const nomMembre = document.createElement('p');
+    nomMembre.classList.add('pokemon-equip-name');
+    nomMembre.innerText = pokemon.name;
+    membreEquip.appendChild(nomMembre);
+
+    const id2 = document.createElement('p');
+    id2.classList.add('pokemon-equip-id'); 
+    id2.innerText = `#${pokemon.id}`;
+    membreEquip.appendChild(id2);
+
+    const image = document.createElement('img');
+    image.classList.add('pokemon-equip-image'); 
+    image.src = pokemon.sprites.other['official-artwork'].front_default;
+    membreEquip.appendChild(image);
+
+    const botoEliminar = document.createElement('button');
+    botoEliminar.classList.add('pokemon-equip-boto');
+    botoEliminar.innerText = 'Eliminar';
+    botoEliminar.addEventListener('click', () => {
+        membreEquip.remove();
+        equip = equip.filter(p => p.id !== pokemon.id);  
+    });
+    membreEquip.appendChild(botoEliminar);
+    
+    equipSection.appendChild(membreEquip);
+
     
 }
 
