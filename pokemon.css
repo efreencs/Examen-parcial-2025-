@@ -1,0 +1,24 @@
+:root {
+  --main-background-color: #044acb;
+  --main-text-color: #cabd04;
+  --link-color: rgb(65, 225, 7);
+  --link-color-hover: rgb(2, 105, 9);
+  --visited-link-color: rgb(1, 41, 17);
+  --warning-link-color: #f87000;
+  --button-background-color: #a8660a;
+  --button-border-color: #470202;
+  --button-hover-color: #6a4902;
+}
+
+
+.dark-mode {
+  --main-background-color: var(--main-background-color);
+  --main-text-color: var(--main-text-color);
+}
+
+#logo-pokemon {
+    width: 100px;
+    height: auto;
+    object-fit: contain;
+
+}
