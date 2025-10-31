@@ -36,6 +36,43 @@ body {
     padding: 0;
 }
 
+#pokemonsection {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 15px;
+  padding: 20px;
+}
+.pokemondiv {
+    background-color: var(--main-text-color);
+    border-radius: 15px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.2s;
+    align-self: start;
+}
+
+.pokemon-name{
+    margin: 3px 0;
+    font-size: 14px;
+}
+.pokemon-id{
+    margin: 3px 0;
+    font-size: 12px;
+}
+
+.pokemonbutton{
+    background-color: var(--button-background-color);
+    border: 2px solid var(--button-border-color);
+    border-radius: 8px;
+    color: var(--main-text-color);
+    cursor: pointer;
+    font-size: 12px;
+    margin-top: 5px;
+    padding: 5px 10px;
+}
+
+
 
 @media (max-width: 600px) {
 

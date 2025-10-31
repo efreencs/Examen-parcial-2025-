@@ -10,20 +10,37 @@ window.onload = async() => {
 
 
     const pokemons = await fetchpokemons();
-    pokemonsection = document.getElementById('pokemonsection');
+    const pokemonsection = document.getElementById('pokemonsection');
+
     for (const actual of pokemons) {
         const pokemondiv = document.createElement('div');
         pokemondiv.classList.add('pokemondiv');
+        pokemondiv.style.cursor = 'pointer';
+
+        pokemondiv.addEventListener('click', function() {
+            mostrarStats(actual, this);
+        });
 
         const name = document.createElement('p');
+        name.classList.add('pokemon-name');
         name.innerText = actual.name;
         pokemondiv.appendChild(name);
 
 
         const id = document.createElement('p');
+        id.classList.add('pokemon-id'); 
         id.innerText = `ID: ${actual.id}`;
         pokemondiv.appendChild(id);
 
+        const botoafegir = document.createElement('button');
+        id.classList.add('pokemon-button');
+        botoafegir.innerText = 'Afegir a l\'equip';
+        botoafegir.addEventListener('click', (event) => { 
+            event.stopPropagation();
+            afegirAEquip(actual);
+        });
+        pokemondiv.appendChild(botoafegir);
+        pokemonsection.appendChild(pokemondiv);
     }
 
 }
