@@ -4,15 +4,17 @@ const apiUrl = 'https://pokeapi.co/api/docs/v2';
 let equip = [];
 
 window.onload = () => {
+
+    const botoBuscar = document.getElementById('botobuscar');
+    botoBuscar.addEventListener('click', () => buscarPokemon());
+
+
     const pokemons = await fetchpokemons();
     pokemonsection = document.getElementById('pokemonsection');
     for (const actual of pokemons) {
         const pokemondiv = document.createElement('div');
         pokemondiv.classList.add('pokemondiv');
-
-
-
-
+    }
 }
 
 
@@ -27,4 +29,13 @@ async function fetchpokemons() {
         pokemondetails.push(pokemondata);
     }
     return pokemondetails;
+}
+
+async function buscarPokemon() {
+    const pokemonbuscar = document.getElementById('buscarpokemon').value;
+    const nompokemon = pokemonbuscar.toLowerCase().trim();
+    const resposta = document.getElementById('resultats');
+
+    const httppokemon = fetch(`https://pokeapi.co/api/v2/pokemon/${nompokemon}`);
+    
 }
