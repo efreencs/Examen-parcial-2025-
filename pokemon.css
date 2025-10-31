@@ -16,9 +16,40 @@
   --main-text-color: var(--main-text-color);
 }
 
-#logo-pokemon {
-    width: 100px;
-    height: auto;
-    object-fit: contain;
+header{
+    background-color: var(--main-background-color);
+    color: var(--main-text-color);
+    text-align: start;
+    padding: 10px;
+}
 
+#logo-pokemon {
+    width: 400px;
+    height: auto;
+}
+
+body {
+    background-color: var(--main-background-color);
+    color: var(--main-text-color);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+@media (max-width: 600px) {
+
+  header h1 {
+    font-size: 20px;
+  }
+
+  #Pokemons {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+    padding: 10px;
+  }
+  
+  .membre-equip {
+    width: 120px;
+  }
 }
