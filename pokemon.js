@@ -75,12 +75,9 @@ async function buscarPokemon() {
     const dadespokemon = await httppokemon.json();
 
     const aliaspokemon = document.createElement('h3');
-    aliaspokemon.innertext = dadespokemon.name;
+    aliaspokemon.classList.add('pokemon-buscat-name');
+    aliaspokemon.innerText = dadespokemon.name;
     resposta.appendChild(aliaspokemon);
-
-    const nombuscat = document.createElement('p');
-    nombuscat.innerText = dadespokemon.name;
-    resposta.appendChild(nombuscat);
 
     const idbuscat = document.createElement('p');
     idbuscat.innerText = `Numero de la pokedex  #${dadespokemon.id}`;
@@ -150,7 +147,7 @@ async function afegirAEquip(pokemon) {
 
     const id2 = document.createElement('p');
     id2.classList.add('pokemon-equip-id'); 
-    id2.innerText = `#${pokemon.id}`;
+    id2.innerText = `Pokedex #${pokemon.id}`;
     elementpokemon.appendChild(id2);
 
     const image = document.createElement('img');
@@ -164,7 +161,7 @@ async function afegirAEquip(pokemon) {
     elementpokemon.appendChild(tipus);   
 
     const botoEliminar = document.createElement('button');
-    botoEliminar.classList.add('pokemon-equip-boto');
+    botoEliminar.classList.add('pokemon-equip-button');
     botoEliminar.innerText = 'Eliminar';
     botoEliminar.addEventListener('click', () => {
         elementpokemon.remove();
@@ -173,7 +170,7 @@ async function afegirAEquip(pokemon) {
 
     elementpokemon.appendChild(botoEliminar);
 
-    equipSection.appendChild(elementpokemon);
+    seccioequip.appendChild(elementpokemon);
 
 }
 

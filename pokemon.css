@@ -19,6 +19,7 @@
 header{
     background-color: var(--main-background-color);
     color: var(--main-text-color);
+    display: grid;
     text-align: start;
     padding: 10px;
 }
@@ -26,6 +27,8 @@ header{
 #logo-pokemon {
     width: 400px;
     height: auto;
+    justify-self: center;
+
 }
 
 body {
@@ -40,6 +43,12 @@ body {
   text-align: left; 
   text-transform: capitalize;
   padding: 20px;
+}
+
+.pokemon-buscat-name{
+  text-transform: capitalize;
+  margin: 20px 0;
+  font-size: 14px;
 }
 
 .pokemon-buscat-image {
@@ -78,7 +87,7 @@ body {
     text-transform: capitalize;
 }
 .pokemon-id{
-    color: #ffffff;
+    color: var(--button-background-color);
     margin: 3px 0;
     font-size: 12px;
     text-align: center;
@@ -106,8 +115,8 @@ body {
   object-fit: contain;
 }
 
-.pokemon.types{
-  color: #ffffff;
+.pokemon-types{
+  color: var(--button-background-color);
   margin: 3px 0;
   font-size: 14px;
   text-align: center;
@@ -157,6 +166,7 @@ nav {
 
 .pokemon-equip-name {
   color: var(--button-background-color);
+  text-transform: capitalize;
   margin: 5px 0;
   font-size: 14px;
 }
@@ -166,7 +176,7 @@ nav {
   margin: 5px 0;
   font-size: 14px;
 }
-.pokemon-equip-tipus {
+.pokemon-equip-types {
   color: var(--button-background-color);
   margin: 5px 0;
   font-size: 14px;
