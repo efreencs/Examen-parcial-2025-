@@ -107,18 +107,86 @@ body {
 }
 
 .pokemon.types{
-  color: var(--button-background-color);
+  color: #ffffff;
   margin: 3px 0;
   font-size: 14px;
   text-align: center;
   text-transform: capitalize;
 }
 
-#equippokemon li {
-  list-style-type: none;
+nav {
+  position: sticky;
+  top: 0;
+}
+
+#equippokemon {
+  display: flex;
+  flex-direction: row; 
+  gap: 15px;
+  list-style: none;
+  margin: 0;
   padding: 0;
 }
 
+#equippokemon li {
+  background-color: var(--main-text-color);
+  border-radius: 15px;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 350px; 
+  transition: transform 0.2s;
+  display: flex;
+  flex-direction: column;  
+  gap: 15px;
+  list-style: none; 
+  margin: 0;
+  align-items: center;
+}
+
+#equippokemon li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.pokemon-equip-image {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+
+.pokemon-equip-name {
+  color: var(--button-background-color);
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.pokemon-equip-id {
+  color: var(--button-background-color);
+  margin: 5px 0;
+  font-size: 14px;
+}
+.pokemon-equip-tipus {
+  color: var(--button-background-color);
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.pokemon-equip-button {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background-color: var(--button-background-color);
+  border: 2px solid var(--button-border-color);
+  border-radius: 5px;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.pokemon--equip-button:hover {
+  background-color: var(--button-hover-color);
+  border-color: var(--button-hover-color);
+
+}
 @media (max-width: 600px) {
 
   header h1 {

@@ -123,7 +123,7 @@ async function mostrarStats(pokemon, divClicat) {
 
     const tipus = document.createElement('p');
     tipus.classList.add('pokemon-types'); 
-    tipus.innerText = dataBusqueda.types.map(typeInfo => typeInfo.type.name).join(', ');
+    tipus.innerText = ('Tipus: ' + dataBusqueda.types.map(typeInfo => typeInfo.type.name).join(', '));
     divClicat.appendChild(tipus);        
 }
 
@@ -141,35 +141,39 @@ async function afegirAEquip(pokemon) {
 
     const seccioequip = document.getElementById('equippokemon');
     const elementpokemon = document.createElement('li');
-    elementpokemon.innerText = pokemon.name;
     seccioequip.appendChild(elementpokemon);
 
-    const nomMembre = document.createElement('p');
+    const nomMembre = document.createElement('h3');
     nomMembre.classList.add('pokemon-equip-name');
     nomMembre.innerText = pokemon.name;
-    membreEquip.appendChild(nomMembre);
+    elementpokemon.appendChild(nomMembre);
 
     const id2 = document.createElement('p');
     id2.classList.add('pokemon-equip-id'); 
     id2.innerText = `#${pokemon.id}`;
-    membreEquip.appendChild(id2);
+    elementpokemon.appendChild(id2);
 
     const image = document.createElement('img');
     image.classList.add('pokemon-equip-image'); 
     image.src = pokemon.sprites.other['official-artwork'].front_default;
-    membreEquip.appendChild(image);
+    elementpokemon.appendChild(image);
+
+    const tipus = document.createElement('p');
+    tipus.classList.add('pokemon-equip-types'); 
+    tipus.innerText = ('Tipus: ' + pokemon.types.map(typeInfo => typeInfo.type.name).join(', '));
+    elementpokemon.appendChild(tipus);   
 
     const botoEliminar = document.createElement('button');
     botoEliminar.classList.add('pokemon-equip-boto');
     botoEliminar.innerText = 'Eliminar';
     botoEliminar.addEventListener('click', () => {
-        membreEquip.remove();
+        elementpokemon.remove();
         equip = equip.filter(p => p.id !== pokemon.id);  
     });
-    membreEquip.appendChild(botoEliminar);
-    
-    equipSection.appendChild(membreEquip);
 
-    
+    elementpokemon.appendChild(botoEliminar);
+
+    equipSection.appendChild(elementpokemon);
+
 }
 
