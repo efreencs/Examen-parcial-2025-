@@ -23,6 +23,10 @@ header{
     text-align: start;
     padding: 10px;
 }
+header h1 {
+    margin: 0;
+    font-size: 28px;
+}
 
 #logo-pokemon {
     width: 400px;
@@ -143,7 +147,7 @@ nav {
   padding: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
-  width: 350px; 
+  width: 215px; 
   transition: transform 0.2s;
   display: flex;
   flex-direction: column;  
@@ -197,19 +201,28 @@ nav {
   border-color: var(--button-hover-color);
 
 }
-@media (max-width: 600px) {
+@media (max-width: 736px) {
 
   header h1 {
     font-size: 20px;
   }
 
-  #Pokemons {
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+#pokemonsection {
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
     gap: 10px;
     padding: 10px;
   }
+#equippokemon {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 15px;
+  padding: 20px;
+}
+.pokemon-name{
+    font-size: 2px;
+  }
   
-  .membre-equip {
-    width: 120px;
+.membre-equip {
+    width: 100px;
   }
 }
