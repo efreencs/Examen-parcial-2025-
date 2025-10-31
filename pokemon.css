@@ -51,25 +51,33 @@ body {
     transition: transform 0.2s;
     align-self: start;
 }
+.pokemondiv:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
 
 .pokemon-name{
+    color: var(--main-background-color);
     margin: 3px 0;
     font-size: 14px;
+    text-align: center;
+    text-transform: capitalize;
 }
 .pokemon-id{
+    color: var(--main-background-color);
     margin: 3px 0;
     font-size: 12px;
+    text-align: center;
+    text-transform: capitalize;
 }
 
-.pokemonbutton{
+.pokemon-button{
     background-color: var(--button-background-color);
     border: 2px solid var(--button-border-color);
     border-radius: 8px;
     color: var(--main-text-color);
     cursor: pointer;
     font-size: 12px;
-    margin-top: 5px;
-    padding: 5px 10px;
 }
 
 

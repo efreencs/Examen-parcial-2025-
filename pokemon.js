@@ -78,12 +78,28 @@ async function buscarPokemon() {
     aliaspokemon.innertext = dadespokemon.name;
     resposta.appendChild(aliaspokemon);
 
+    const nombuscat = document.createElement('p');
+    nombuscat.innerText = dataBusqueda.name;
+    resultat.appendChild(nombuscat);
+
+    const idbuscat = document.createElement('p');
+    idbuscat.innerText = `#${dataBusqueda.id}`;
+    resultat.appendChild(idbuscat);
+
+    const seccioresultat = document.createElement('ul');
+    const titolTipus = document.createElement('p');
+    titolTipus.innerText = 'Els tipus del pokemon son:';
+    resultat.appendChild(titolTipus);
+    
+    for (const tipo of dataBusqueda.types) {
+        const elementTipus = document.createElement('li');
+        elementTipus.innerText = tipo.type.name;
+        seccioresultat.appendChild(elementTipus);
+    }
+    resultat.appendChild(seccioresultat);
+
     const imatgepokemon = document.createElement('img');
-    imatgepokemon.src = dadespokemon.sprites.front_default;
+    imatgepokemon.src = dadespokemon.sprites.other['official-artwork'].front_default;
     resposta.appendChild(imatgepokemon);
-
-
-
-
     
 }
